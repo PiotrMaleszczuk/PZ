@@ -5,6 +5,7 @@ from nltk.corpus import stopwords, reuters
 from sklearn.feature_extraction.text import TfidfVectorizer
 cachedStopWords = stopwords.words("english")
 
+#zajecia 1 28.02.2017
 #zdefiniuj procedure, plus argumenty standardowe czyli (text)
     #definicja funkcji tokenize przyjmuje jeden argument w postaci ciaglego tekstu w zmiennej text
 #elementem składni jest wciecie po dwukropku
