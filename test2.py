@@ -1,3 +1,5 @@
+#Lab 1 28.02.2017
+
 from nltk import word_tokenize
 from nltk.stem.porter import PorterStemmer
 import re

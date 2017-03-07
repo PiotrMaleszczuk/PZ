@@ -1,3 +1,5 @@
+#Lab 1 28.02.2017
+
 from nltk.corpus import reuters
 print(reuters.fileids('barley'))
 print(reuters.fileids(['barley', 'corn']))
