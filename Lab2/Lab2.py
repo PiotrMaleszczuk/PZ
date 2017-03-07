@@ -4,6 +4,8 @@
 #import nazwa as alias
 
 import matplotlib.pyplot as plt
+from sklearn import svm
+
 #odwołujac się do biblioteki używamy aliasu ply.funkcja
 
 def load_data(filename):
@@ -15,18 +17,21 @@ def load_data(filename):
 
 #tworzymy funkcje rysujaca dane
 def draw_data(X):
+    #wartosci do dopasowania wykresu do wartosci
     maxX = 0
     maxY = 0
     minX = 0
     minY = 0
 
+    #tablice dodawane do wykresu
     x1 = []
     x2 = []
     x3 = []
     y1 = []
     y2 = []
     y3 = []
-    for [x,y,c] in X:
+
+    for [x, y, c] in X:
         if c == 1:
             x1.append(x)
             y1.append(y)
@@ -56,7 +61,25 @@ def draw_data(X):
     ##wyświetlenie diagramu
     plt.show()
 
+#funkcja klasyfikacji
+def classify(X):
+    Xs = []
+    ys = []
+    for [x,y,c] in X:
+        if c == 1 or c == 0:
+            Xs.append([x,y])
+            ys.append(c)
+    clf = svm.SVC()
+    clf.fit(Xs,ys)
+    for i in range(len(X)):
+            if X[i][2] == -1:
+                X[i][2] = clf.predict([X[i][0],X[i][1]])
+    #return (X, clf.support_vectors_)
+    return X
+
 
 #ala main, czyli wywołanie stworzonych funckji
+
 dane = load_data('Lab2PrzykladXYZ')
-draw_data(dane)
+draw_data(classify(dane))
+
