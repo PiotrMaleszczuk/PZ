@@ -24,7 +24,8 @@ def tokenize(text):
     #metoda nltk która zwraca poszatkowany tekst
     #ala ma kota -> ['ala', 'ma', 'kota']
     #PorterStemmer().stem usywanie koncowki z wyrazenia
-    tokens =(list(map(lambda token: PorterStemmer().stem(token),words)));
+    tokens = words
+    #tokens =(list(map(lambda token: PorterStemmer().stem(token),words)));
     #za pomoca tej biblioteki tworzymy wrzozec wyrazenia regularnego (pattern)
     p = re.compile('[a-zA-Z]+');
     #kolejne tworzenie listy za pomoca wyrazenia lambda
@@ -56,7 +57,7 @@ def main():
 
     representer = tf_idf(train_docs);
 
-    for doc in test_docs:
-        print(feature_values(doc, representer))
+   # for doc in test_docs:
+      #  print(feature_values(doc, representer))
 
 main()
